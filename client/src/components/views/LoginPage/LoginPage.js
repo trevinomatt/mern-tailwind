@@ -37,21 +37,38 @@ function LoginPage(props) {
     }
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh'
-        }}>
-            <form style={{ display: 'flex', flexDirection: 'column' }}
-                onSubmit={onSubmitHandler}
-            >
-                <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
-                <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
-                <br />
-                <button>
-                    Login
-                </button>
+        <div className="container mx-auto flex flex-col justify-center items-center w-full h-screen">
+            <form className="w-full max-w-screen-sm" onSubmit={onSubmitHandler}>
+                <div className="bg-white shadow-lg rounded px-8 pt-8 pb-8 flex flex-col">
+                    <h1 className="mb-6 text-3xl text-center font-bold">Sign In</h1>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm" htmlFor="email">
+                            Email:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600"
+                                id="email" type="email" placeholder="Email" value={Email} onChange={onEmailHandler} />
+                        </label>
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-gray-700 text-sm" htmlFor="password">
+                            Password:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600 mb-3"
+                                id="password" type="password" placeholder="Password" value={Password} onChange={onPasswordHandler} />
+                        </label>
+                    </div>
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mb-1 rounded" type="submit">
+                        Sign In
+                    </button>
+                    <div className="flex items-center justify-end">
+                        <a className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-600" href="/">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
             </form>
+            <div className="text-gray-700 mt-6">
+                Don't have an account? <a className="no-underline border-b border-blue-500 hover:border-blue-600 text-blue-500 hover:text-blue-600" href="/register/">Register Now</a>.
+            </div>
+
         </div>
     )
 }

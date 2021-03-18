@@ -52,28 +52,47 @@ function RegisterPage(props) {
     }
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100vh'
-        }}>
-            <form style={{ display: 'flex', flexDirection: 'column' }}
-                onSubmit={onSubmitHandler}
-            >
-                <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
+        <div className="container mx-auto flex flex-col justify-center items-center w-full h-screen">
+            <form className="w-full max-w-screen-sm" onSubmit={onSubmitHandler}>
+                <div className="bg-white shadow-lg rounded px-8 pt-8 pb-8 flex flex-col">
+                    <h1 className="mb-6 text-3xl text-center font-bold">Sign Up</h1>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm" htmlFor="email">
+                            Email:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600"
+                                id="email" type="email" placeholder="Email" value={Email} onChange={onEmailHandler} />
+                        </label>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm" htmlFor="name">
+                            Name:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600"
+                                id="name" type="text" placeholder="Name" value={Name} onChange={onNamedHandler} />
+                        </label>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm" htmlFor="password">
+                            Password:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600"
+                                id="password" type="password" placeholder="Password" value={Password} onChange={onPasswordHandler} />
+                        </label>
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-gray-700 text-sm" htmlFor="confirm-password">
+                            Confirm Password:
+                            <input className="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 mt-2 text-gray-600"
+                                id="confirm-password" type="password" placeholder="Confirm Password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
+                        </label>
+                    </div>
 
-                <label>Name</label>
-                <input type="text" value={Name} onChange={onNamedHandler} />
-
-                <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
-
-                <label>Confirm Password</label>
-                <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
-                <br />
-                <button>
-                    Register
-                </button>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" type="submit">
+                        Create Account
+                    </button>
+                </div>
             </form>
+            <div className="text-gray-700 mt-6">
+                Already have an account? <a className="no-underline border-b border-blue-500 hover:border-blue-600 text-blue-500 hover:text-blue-600" href="/login/">Log in</a>.
+            </div>
         </div>
     )
 }
