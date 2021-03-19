@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 function RegisterPage(props) {
     const dispatch = useDispatch();
@@ -91,7 +91,7 @@ function RegisterPage(props) {
                 </div>
             </form>
             <div className="text-gray-700 mt-6">
-                Already have an account? <a className="no-underline border-b border-blue-500 hover:border-blue-600 text-blue-500 hover:text-blue-600" href="/login/">Log in</a>.
+                Already have an account? <Link to="/login" className="no-underline border-b border-blue-500 hover:border-blue-600 text-blue-500 hover:text-blue-600">Log in</Link>.
             </div>
         </div>
     )

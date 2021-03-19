@@ -2,7 +2,8 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 
 import LandingPage from './components/views/LandingPage/LandingPage';
@@ -41,12 +42,7 @@ function App() {
               {links.map(link => {
                 return (
                   <li key={link.name.toString()}>
-                    <a
-                      className="block px-0 py-3 border-b border-transparent lg:p-4 hover:border-white transition-all duration-200"
-                      href={link.link}
-                    >
-                      {link.name}
-                    </a>
+                    <Link to={link.link} className="block px-0 py-3 border-b border-transparent lg:p-4 hover:border-white transition-all duration-200">{link.name}</Link>
                   </li>
                 );
               })}
