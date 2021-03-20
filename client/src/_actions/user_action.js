@@ -53,7 +53,7 @@ export function forgotPassword(dataToSubmit) {
     .then(response => response.data);
 
     return {
-        FORGOT_PASSWORD,
+        type: FORGOT_PASSWORD,
         payload: request
     }
 }

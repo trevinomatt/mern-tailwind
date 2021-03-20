@@ -6,7 +6,6 @@ const { auth } = require('../middleware/auth');
 const { User } = require('../models/User');
 
 const config = require('../config/email');
-const { request } = require('express');
 
 // ========================================
 // User
