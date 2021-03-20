@@ -59,9 +59,7 @@ function LoginPage(props) {
                         Sign In
                     </button>
                     <div className="flex items-center justify-end">
-                        <a className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-600" href="/">
-                            Forgot Password?
-                        </a>
+                        <Link to="/forgotpassword" className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-600">Forgot Password?</Link>
                     </div>
                 </div>
             </form>

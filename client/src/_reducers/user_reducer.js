@@ -2,7 +2,8 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    FORGOT_PASSWORD
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -17,7 +18,11 @@ export default function (state = {}, action) {
             return { ...state, userData: action.payload };
             break;
         case LOGOUT_USER:
-            return { ...state }
+            return { ...state };
+            break;
+        case FORGOT_PASSWORD:
+            return { ...state, sentEmailSuccess: action.payload };
+            break;
         default:
             return state;
     }

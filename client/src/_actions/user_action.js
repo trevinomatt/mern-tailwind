@@ -3,7 +3,8 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    LOGOUT_USER
+    LOGOUT_USER,
+    FORGOT_PASSWORD
 } from './types';
 import { USER_SERVER } from '../components/Config';
 
@@ -43,6 +44,16 @@ export function logoutUser() {
 
     return {
         type: LOGOUT_USER,
+        payload: request
+    }
+}
+
+export function forgotPassword(dataToSubmit) {
+    const request = axios.post(`${USER_SERVER}/forgotpassword`, dataToSubmit)
+    .then(response => response.data);
+
+    return {
+        FORGOT_PASSWORD,
         payload: request
     }
 }

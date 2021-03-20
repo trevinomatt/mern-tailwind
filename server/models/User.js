@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
 
 const userSchema = mongoose.Schema({
     name: {
@@ -74,8 +75,10 @@ userSchema.methods.generateToken = function(cb) {
     let user = this;
     // generate token with jsonwebtoken
     let token = jwt.sign(user._id.toHexString(), 'tokenMatthew');
+    let oneHour = moment().add(1, 'hour').valueOf();
 
     user.token = token;
+    user.tokenExp = oneHour;
     user.save(function(err, user) {
         if (err) {
             return cb(err);

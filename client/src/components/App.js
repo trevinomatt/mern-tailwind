@@ -8,6 +8,7 @@ import {
 import LandingPage from './views/LandingPage/LandingPage';
 import LoginPage from './views/LoginPage/LoginPage';
 import RegisterPage from './views/RegisterPage/RegisterPage';
+import ForgotPasswordPage from './views/ForgotPasswordPage/ForgotPasswordPage';
 import NavBar from './views/NavBar/NavBar';
 import Auth from '../hoc/auth';
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route path="/login" component={Auth(LoginPage, false)} />
           <Route path="/register" component={Auth(RegisterPage, false)} />
+          <Route path="/forgotpassword" component={Auth(ForgotPasswordPage, false)} />
         </Switch>
       </div>
     </Router>
